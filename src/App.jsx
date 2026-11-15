@@ -1,7 +1,8 @@
-const reactDescriptions = ['Fundamental', 'Crucial', 'Core'];
+const reactDescriptions = ["Fundamental", "Crucial", "Core"];
 const imageSrc = "src/assets/react-core-concepts.png";
+const compImages = "src/assets/components.png";
 
-function getRandomInt(max){
+function getRandomInt(max) {
   /*
     Math.floor()
     Metode Math.floor() statis selalu membulatkan ke bawah 
@@ -26,12 +27,31 @@ function Header() {
   );
 }
 
+function CoreConcepts(props) {
+  return (
+    <li>
+      <img src={props.image} alt={props.title} />
+      <h3>{props.title}</h3>
+      <p>{props.description}</p>
+    </li>
+  );
+}
+
 function App() {
   return (
     <div>
       <Header />
       <main>
-        <h2>Time to get started!</h2>
+        <section id="core-concepts">
+          <h2>Core Concepts</h2>
+          <ul>
+            <CoreConcepts 
+              title="Components"
+              description="-"
+              image={compImages}
+            />
+          </ul>
+        </section>
       </main>
     </div>
   );
