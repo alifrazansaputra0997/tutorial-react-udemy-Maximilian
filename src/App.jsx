@@ -1,6 +1,7 @@
-import Header from './components/Header/Header';
-import CoreConcepts from './components/CoreConcepts/CoreConcepts';
-import { CORE_CONCEPTS } from './data';
+import Header from "./components/Header/Header";
+import CoreConcepts from "./components/CoreConcepts/CoreConcepts";
+import { CORE_CONCEPTS } from "./data";
+import TabButton from "./components/TabButton/TabButton";
 
 function App() {
   return (
@@ -10,22 +11,28 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcepts 
+            <CoreConcepts
               title={CORE_CONCEPTS[0].title}
               description={CORE_CONCEPTS[0].description}
               image={CORE_CONCEPTS[0].image}
             />
-             <CoreConcepts 
+            <CoreConcepts
               title={CORE_CONCEPTS[1].title}
               description={CORE_CONCEPTS[1].description}
               image={CORE_CONCEPTS[1].image}
             />
-             <CoreConcepts 
+            <CoreConcepts
               title={CORE_CONCEPTS[2].title}
               description={CORE_CONCEPTS[2].description}
               image={CORE_CONCEPTS[2].image}
             />
           </ul>
+        </section>
+        <section id="examples">
+          <h2>Examples</h2>
+          <menu>
+            <TabButton>Hello</TabButton>
+          </menu>
         </section>
       </main>
     </div>
