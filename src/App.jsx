@@ -4,6 +4,10 @@ import { CORE_CONCEPTS } from "./data";
 import TabButton from "./components/TabButton/TabButton";
 
 function App() {
+  function onClick() {
+    console.log("ON CLICK!");
+  }
+
   return (
     <div>
       <Header />
@@ -31,8 +35,12 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton>Hello</TabButton>
+            <TabButton onClick={onClick}>Components</TabButton>
+            <TabButton onClick={onClick}>JSX</TabButton>
+            <TabButton onClick={onClick}>Props</TabButton>
+            <TabButton onClick={onClick}>State</TabButton>
           </menu>
+          Dynamic Content
         </section>
       </main>
     </div>
