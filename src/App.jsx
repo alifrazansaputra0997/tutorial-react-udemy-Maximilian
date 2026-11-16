@@ -6,10 +6,21 @@ import TabButton from "./components/TabButton/TabButton";
 import { EXAMPLES } from "./data-with-example";
 
 function App() {
-  const [selectedTopic, setSelectedTopic] = useState("components");
+  const [selectedTopic, setSelectedTopic] = useState();
+  let tabContent = <p>Plase select a topic</p>;
 
   function onClick(tabInfo) {
     setSelectedTopic(tabInfo);
+  }
+
+  if (selectedTopic) {
+    tabContent = (
+      <div id="tab-content">
+        <h3>{EXAMPLES[selectedTopic].title}</h3>
+        <p>{EXAMPLES[selectedTopic].decsription}</p>
+        <pre>{EXAMPLES[selectedTopic].code}</pre>
+      </div>
+    );
   }
 
   return (
@@ -46,11 +57,7 @@ function App() {
             <TabButton onClick={() => onClick("props")}>Props</TabButton>
             <TabButton onClick={() => onClick("state")}>State</TabButton>
           </menu>
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].decsription}</p>
-            <pre>{EXAMPLES[selectedTopic].code}</pre>
-          </div>
+          {tabContent}
         </section>
       </main>
     </div>
