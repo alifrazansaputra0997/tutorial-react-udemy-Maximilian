@@ -50,12 +50,20 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onClick={() => onClick("components")}>
+            <TabButton 
+            isSelected={selectedTopic === "components"}
+            onClick={() => onClick("components")}>
               Components
             </TabButton>
-            <TabButton onClick={() => onClick("jsx")}>JSX</TabButton>
-            <TabButton onClick={() => onClick("props")}>Props</TabButton>
-            <TabButton onClick={() => onClick("state")}>State</TabButton>
+            <TabButton 
+            isSelected={selectedTopic === "jsx"}
+            onClick={() => onClick("jsx")}>JSX</TabButton>
+            <TabButton 
+            isSelected={selectedTopic === "props"}
+            onClick={() => onClick("props")}>Props</TabButton>
+            <TabButton 
+            isSelected={selectedTopic === "state"}
+            onClick={() => onClick("state")}>State</TabButton>
           </menu>
           {tabContent}
         </section>
