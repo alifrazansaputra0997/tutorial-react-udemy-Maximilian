@@ -30,40 +30,43 @@ function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcepts
-              title={CORE_CONCEPTS[0].title}
-              description={CORE_CONCEPTS[0].description}
-              image={CORE_CONCEPTS[0].image}
-            />
-            <CoreConcepts
-              title={CORE_CONCEPTS[1].title}
-              description={CORE_CONCEPTS[1].description}
-              image={CORE_CONCEPTS[1].image}
-            />
-            <CoreConcepts
-              title={CORE_CONCEPTS[2].title}
-              description={CORE_CONCEPTS[2].description}
-              image={CORE_CONCEPTS[2].image}
-            />
+            {CORE_CONCEPTS.map((concept) => (
+              <CoreConcepts
+                key={concept.title}
+                title={concept.title}
+                description={concept.description}
+                image={concept.image}
+              />
+            ))}
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton 
-            isSelected={selectedTopic === "components"}
-            onClick={() => onClick("components")}>
+            <TabButton
+              isSelected={selectedTopic === "components"}
+              onClick={() => onClick("components")}
+            >
               Components
             </TabButton>
-            <TabButton 
-            isSelected={selectedTopic === "jsx"}
-            onClick={() => onClick("jsx")}>JSX</TabButton>
-            <TabButton 
-            isSelected={selectedTopic === "props"}
-            onClick={() => onClick("props")}>Props</TabButton>
-            <TabButton 
-            isSelected={selectedTopic === "state"}
-            onClick={() => onClick("state")}>State</TabButton>
+            <TabButton
+              isSelected={selectedTopic === "jsx"}
+              onClick={() => onClick("jsx")}
+            >
+              JSX
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === "props"}
+              onClick={() => onClick("props")}
+            >
+              Props
+            </TabButton>
+            <TabButton
+              isSelected={selectedTopic === "state"}
+              onClick={() => onClick("state")}
+            >
+              State
+            </TabButton>
           </menu>
           {tabContent}
         </section>
