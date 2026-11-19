@@ -1,20 +1,8 @@
 import { useState } from "react";
-export default function UserInput() {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 1000,
-    annualInvestment: 1200,
-    exptectedReturn: 6,
-    duration: 10,
-  });
+export default function UserInput({ onChange, userInput }) {
 
-  function handleChange(inputIdentifier, newValue) {
-    setUserInput((prevUserInput) => {
-      return {
-        ...prevUserInput,
-        [inputIdentifier]: newValue,
-      };
-    });
-  }
+
+
 
   return (
     <section id="user-input">
@@ -23,13 +11,13 @@ export default function UserInput() {
           <label>Initial Investement</label>
           <input type="number" required 
           value={userInput.initialInvestment}
-          onChange={(event) => handleChange('initialInvestment', event.target.value)}/>
+          onChange={(event) => onChange('initialInvestment', event.target.value)}/>
         </p>
         <p>
           <label>Annual Investement</label>
           <input type="number" 
           value={userInput.annualInvestment}
-          required onChange={(event) => handleChange('annualInvestment', event.target.value)}/>
+          required onChange={(event) => onChange('annualInvestment', event.target.value)}/>
         </p>
       </div>
       <div className="input-group">
@@ -37,13 +25,13 @@ export default function UserInput() {
           <label>Expected Return</label>
           <input type="number" 
           value={userInput.exptectedReturn}
-          required onChange={(event) => handleChange('exptectedReturn', event.target.value)}/>
+          required onChange={(event) => onChange('exptectedReturn', event.target.value)}/>
         </p>
         <p>
           <label>Duration</label>
           <input type="number" 
           value={userInput.duration}
-          required onChange={(event) => handleChange('duration', event.target.value)}/>
+          required onChange={(event) => onChange('duration', event.target.value)}/>
         </p>
       </div>
     </section>
